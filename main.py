@@ -4,14 +4,20 @@ from time import sleep
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from datetime import date
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
 
 driver = webdriver.Chrome()
 driver.get("https://www.kodlama.io/")
 sleep(2)
 #Ekranı tam boyuta getirir
 driver.maximize_window() 
+lobinBtnFinder = (By.XPATH,"//*[@id='navbar']/div/div/div/ul/li[3]/a")
+#
+#Web driver söylenen element görünene kadar bekleticem.
+WebDriverWait(driver, 5).until(expected_conditions.visibility_of_element_located(lobinBtnFinder))
 
-loginBtn = driver.find_element(By.XPATH,"//*[@id='navbar']/div/div/div/ul/li[3]/a")
+loginBtn = driver.find_element(lobinBtnFinder)
 
 loginBtnText = loginBtn.text
 
