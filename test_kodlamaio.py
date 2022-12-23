@@ -8,6 +8,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from constants import *
+import pytest
 
 class Test_kodlamaio:
     #Her test öncesi çalışır
@@ -35,5 +36,6 @@ class Test_kodlamaio:
         #if-else gibi düşüncez boolean değer döndürmüş olacak
         assert loginBtn.text == LOGIN_TEXT 
 
+    @pytest.mark.skip
     def test_register(self):
         assert True
